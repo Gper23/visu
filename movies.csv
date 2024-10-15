@@ -1,0 +1,48 @@
+budget,genres,vote_average,original_title,release_date,revenue,runtime
+100000000,"['Drama', 'History']",8.087,Oppenheimer,2023-07-19,952000000,181
+25000000,"['Action', 'Adventure', 'Science Fiction']",7.8,Everything Everywhere All at Once,2022-03-24,139200000,140
+10000000,"['Drama', 'Music', 'Romance']",7.932,CODA,2021-08-13,1905058,112
+5000000,['Drama'],7.206,Nomadland,2021-01-29,39458207,108
+800000,"['Horror', 'Science Fiction']",4.9,Parasite,1982-03-12,7000000,85
+23000000,"['Drama', 'History']",8.241,Green Book,2018-11-16,319700000,130
+19500000,"['Drama', 'Fantasy', 'Romance']",7.2,The Shape of Water,2017-12-01,195300000,123
+4000000,['Drama'],7.4,Moonlight,2016-10-21,65046687,111
+20000000,"['Drama', 'History']",7.818,Spotlight,2015-11-06,98690254,129
+0,['Documentary'],3.2,Birdman,2015-07-01,0,13
+20000000,"['Drama', 'History']",7.9,12 Years a Slave,2013-10-18,187000000,134
+44500000,"['Drama', 'Thriller']",7.278,Argo,2012-10-11,232300000,120
+15000000,"['Drama', 'Comedy', 'Romance']",7.5,The Artist,2011-10-12,133432856,100
+15000000,"['Drama', 'History']",7.742,The King's Speech,2010-11-26,414211549,118
+15000000,"['Drama', 'Thriller', 'War']",7.257,The Hurt Locker,2008-10-10,49230772,131
+15000000,"['Drama', 'Romance']",7.732,Slumdog Millionaire,2008-11-12,378400000,120
+25000000,"['Crime', 'Drama', 'Thriller']",7.945,No Country for Old Men,2007-06-13,171627166,122
+90000000,"['Drama', 'Thriller', 'Crime']",8.2,The Departed,2006-10-04,291465000,151
+6500000,['Drama'],7.2,Crash,2005-05-06,98400000,112
+30000000,['Drama'],7.956,Million Dollar Baby,2004-12-15,216763646,132
+94000000,"['Adventure', 'Fantasy', 'Action']",8.5,The Lord of the Rings: The Return of the King,2003-12-17,1118888979,201
+45000000,"['Comedy', 'Crime', 'Drama']",7.119,Chicago,2002-12-10,306776732,113
+58000000,"['Drama', 'Romance']",7.857,A Beautiful Mind,2001-12-14,316800000,135
+103000000,"['Action', 'Drama', 'Adventure']",8.217,Gladiator,2000-05-04,465361176,155
+15000000,['Drama'],8.018,American Beauty,1999-09-15,356296601,122
+25000000,"['Romance', 'History', 'Comedy']",6.87,Shakespeare in Love,1998-12-11,289300000,123
+200000000,"['Drama', 'Romance']",7.906,Titanic,1997-11-18,2264162353,194
+27000000,"['Drama', 'Romance', 'War']",7.177,The English Patient,1996-11-14,231976425,162
+72000000,"['Action', 'Drama', 'History', 'War']",7.941,Braveheart,1995-05-24,213200000,177
+55000000,"['Comedy', 'Drama', 'Romance']",8.5,Forrest Gump,1994-06-23,677387716,142
+22000000,"['Drama', 'History', 'War']",8.564,Schindler's List,1993-12-15,321365567,195
+14400000,['Western'],7.9,Unforgiven,1992-08-07,159157447,130
+19000000,"['Crime', 'Drama', 'Thriller']",8.348,The Silence of the Lambs,1991-02-14,272742922,119
+22000000,"['Adventure', 'Drama', 'Western']",7.848,Dances with Wolves,1990-03-30,424208848,181
+7500000,['Drama'],7.237,Driving Miss Daisy,1989-12-13,145793296,99
+25000000,['Drama'],7.763,Rain Man,1988-12-12,354825435,134
+23800000,"['Drama', 'History']",7.6,The Last Emperor,1987-10-04,44000000,163
+6000000,"['Drama', 'War', 'Action']",7.7,Platoon,1986-12-19,138530565,120
+31000000,"['History', 'Romance', 'Drama']",7.178,Out of Africa,1985-12-20,227514205,161
+18000000,"['History', 'Music', 'Drama']",8.032,Amadeus,1984-09-19,90000000,160
+8000000,"['Drama', 'Comedy']",7.1,Terms of Endearment,1983-11-20,108423749,132
+22000000,"['Drama', 'History']",7.6,Gandhi,1982-12-01,77737889,191
+5500000,"['Drama', 'History']",6.8,Chariots of Fire,1981-05-15,58972904,123
+6000000,['Drama'],7.5,Ordinary People,1980-09-19,54766923,124
+8000000,['Drama'],7.57,Kramer vs. Kramer,1979-12-07,106260000,105
+15000000,"['Drama', 'War']",8.002,The Deer Hunter,1978-12-08,49000000,183
+4000000,"['Comedy', 'Drama', 'Romance']",7.7,Annie Hall,1977-04-19,38288028,93

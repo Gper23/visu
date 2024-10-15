@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizacion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-fetch@3"></script>
+
+    <!-- <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                }
+            }
+        }
+    </script> -->
+</head>
+
+<body class="bg-gradient-to-r from-amber-200 to-yellow-500 flex flex-col justify-center items-center gap-4 w-full p-2">
+    <h1 class="text-2xl md:text-5xl xl:text-8xl font-bold underline">
+        Peliculas ganadoras del Oscar
+    </h1>
+
+    <div class="w-full mt-10" id="chart"></div>
+    <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
+        <div class="w-full">
+            <h2 class="text-xl md:text-2xl font-semibold">
+                Presupuesto
+            </h2>
+            <p class="text-lg md:text-2xl font-light">
+                En esta visualización se muestra la cantidad de peliculas ganadoras del Oscar por año.
+            </p>
+        </div>
+        <div class="w-full">
+            <h2 class="text-xl md:text-2xl font-semibold"">
+                Duracion 
+            </h2>
+            <p class=" text-lg md :text-2xl font-light">
+                Los datos utilizados para esta visualización fueron obtenidos de la base de datos de los premios Oscar.
+                </p>
+        </div>
+        <div class="w-full">
+            <h2 class="text-xl md:text-2xl font-semibold"">
+                Calificacion (IMBD)
+            </h2>
+            <p class=" text-lg md :text-2xl font-light">
+                Los datos utilizados para esta visualización fueron obtenidos de la base de datos de los premios Oscar.
+                </p>
+        </div>
+    </div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+<footer class="text-center text-sm font-light mt-12">
+    <p>Hecho por con ❤️ por <a href="">los de data science; 2024</a></p>
+</footer>
+
+</html>
