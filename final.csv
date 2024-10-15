@@ -1,0 +1,98 @@
+Película,Año,Director,País de nacimiento,Película extra,Oscar,vote_quantity,vote_average
+Oppenheimer,2023,Christopher Nolan,Reino Unido,Interstellar,True,9068,8.087
+Everything Everywhere All At Once,2022,Daniel Kwan; Daniel Scheinert,EE.UU.,Swiss Army Man,True,6434,7.8
+CODA,2021,Siân Heder,EE.UU.,Tallulah,True,2182,7.932
+Nomadland,2020,Chloé Zhao,China,The Rider,True,2936,7.206
+Parasite,2019,Bong Joon-ho,Corea del Sur,Okja,True,64,4.9
+Green Book,2018,Peter Farrelly,EE.UU.,Dumb and Dumber,True,11474,8.241
+The Shape of Water,2017,Guillermo del Toro,México,Pan's Labyrinth,True,12026,7.2
+Moonlight,2016,Barry Jenkins,EE.UU.,If Beale Street Could Talk,True,6969,7.4
+Spotlight,2015,Tom McCarthy,EE.UU.,The Station Agent,True,8153,7.818
+Birdman,2014,Alejandro González Iñárritu,México,The Revenant,True,5,3.2
+12 Years a Slave,2013,Steve McQueen,Reino Unido,Hunger,False,11158,7.9
+Argo,2012,Ben Affleck,EE.UU.,Gone Baby Gone,True,8189,7.278
+The Artist,2011,Michel Hazanavicius,Francia,OSS 117: Cairo,False,3214,7.5
+The King’s Speech,2010,Tom Hooper,Reino Unido,Les Misérables,True,8613,7.742
+The Hurt Locker,2009,Kathryn Bigelow,EE.UU.,Zero Dark Thirty,True,5542,7.257
+Slumdog Millionaire,2008,Danny Boyle,Reino Unido,Trainspotting,True,10465,7.732
+No Country for Old Men,2007,Joel Coen; Ethan Coen,EE.UU.,Fargo,True,11875,7.945
+The Departed,2006,Martin Scorsese,EE.UU.,Goodfellas,True,14758,8.165
+Crash,2005,Paul Haggis,Canadá,In the Valley of Elah,True,3420,7.2
+Million Dollar Baby,2004,Clint Eastwood,EE.UU.,Gran Torino,True,9444,7.956
+The Lord of the Rings: The Return of the King,2003,Peter Jackson,Nueva Zelanda,King Kong,True,24033,8.483
+Chicago,2002,Rob Marshall,EE.UU.,Memoirs of a Geisha,True,2575,7.119
+A Beautiful Mind,2001,Ron Howard,EE.UU.,Apollo 13,True,10092,7.857
+Gladiator,2000,Ridley Scott,Reino Unido,Blade Runner,True,18329,8.217
+American Beauty,1999,Sam Mendes,Reino Unido,1917,True,11943,8.018
+Shakespeare in Love,1998,John Madden,Reino Unido,The Best Exotic Marigold Hotel,True,2947,6.87
+Titanic,1997,James Cameron,Canadá,Avatar,True,25188,7.9
+The English Patient,1996,Anthony Minghella,Reino Unido,The Talented Mr. Ripley,True,2159,7.175
+Braveheart,1995,Mel Gibson,EE.UU.,The Passion of the Christ,True,10038,7.941
+Forrest Gump,1994,Robert Zemeckis,EE.UU.,Back to the Future,True,27271,8.5
+Schindler’s List,1993,Steven Spielberg,EE.UU.,Jurassic Park,True,15752,8.564
+Unforgiven,1992,Clint Eastwood,EE.UU.,Million Dollar Baby,True,4350,7.913
+The Silence of the Lambs,1991,Jonathan Demme,EE.UU.,Philadelphia,True,16149,8.348
+Dances with Wolves,1990,Kevin Costner,EE.UU.,The Postman,True,4175,7.848
+Driving Miss Daisy,1989,Bruce Beresford,Australia,Tender Mercies,True,1558,7.237
+Rain Man,1988,Barry Levinson,EE.UU.,Good Morning,True,6272,7.763
+The Last Emperor,1987,Bernardo Bertolucci,Italia,The Dreamers,True,1652,7.6
+Platoon,1986,Oliver Stone,EE.UU.,Born on the Fourth of July,True,4481,7.742
+Out of Africa,1985,Sydney Pollack,EE.UU.,Tootsie,True,1349,7.178
+Amadeus,1984,Miloš Forman,República Checa,One Flew Over the Cuckoo's Nest,True,4188,8.032
+Terms of Endearment,1983,James L. Brooks,EE.UU.,As Good as It Gets,True,739,7.1
+Gandhi,1982,Richard Attenborough,Reino Unido,Shadowlands,True,2264,7.6
+Chariots of Fire,1981,Hugh Hudson,Reino Unido,Greystoke: The Legend of Tarzan,True,899,6.789
+Ordinary People,1980,Robert Redford,EE.UU.,The Horse Whisperer,True,616,7.457
+Kramer vs. Kramer,1979,Robert Benton,EE.UU.,Places in the Heart,True,2179,7.6
+The Deer Hunter,1978,Michael Cimino,EE.UU.,Heaven's Gate,True,3761,8.002
+Annie Hall,1977,Woody Allen,EE.UU.,Manhattan,True,3845,7.7
+Interstellar,2014,Christopher Nolan,Reino Unido,,False,35352,8.44
+Inception,2010,Christopher Nolan,Reino Unido,,False,36378,8.368
+Dunkirk,2017,Christopher Nolan,Reino Unido,,False,16344,7.5
+Memento,2000,Christopher Nolan,Reino Unido,,False,14731,8.181
+The Dark Knight,2008,Christopher Nolan,Reino Unido,,False,32696,8.5
+The Prestige,2006,Christopher Nolan,Reino Unido,,False,15896,8.204
+Tenet,2020,Christopher Nolan,Reino Unido,,False,9758,7.2
+Insomnia,2002,Christopher Nolan,Reino Unido,,False,4696,6.942
+Batman Begins,2005,Christopher Nolan,Reino Unido,,False,20796,7.708
+The Dark Knight Rises,2012,Christopher Nolan,Reino Unido,,False,22544,7.78
+Swiss Army Man,2016,Daniel Kwan & Daniel Scheinert,EE.UU.,,False,3466,6.924
+The Death of Dick Long,2019,Daniel Scheinert,EE.UU.,,False,143,6.1
+Tallulah,2016,Siân Heder,EE.UU.,,False,707,6.7
+The Rider,2017,Chloé Zhao,China,,False,480,7.3
+Eternals,2021,Chloé Zhao,China,,False,8177,6.857
+Songs My Brothers Taught Me,2015,Chloé Zhao,China,,False,95,7.0
+Okja,2017,Bong Joon-ho,Corea del Sur,,False,4210,7.4
+The Host,2006,Bong Joon-ho,Corea del Sur,,False,3882,6.3
+Memories of Murder,2003,Bong Joon-ho,Corea del Sur,,False,3759,8.061
+Mother,2009,Bong Joon-ho,Corea del Sur,,False,6594,7.0
+Snowpiercer,2013,Bong Joon-ho,Corea del Sur,,False,9435,6.905
+Barking Dogs Never Bite,2000,Bong Joon-ho,Corea del Sur,,False,245,6.8
+Dumb and Dumber,1994,Peter Farrelly,EE.UU.,,False,6045,6.632
+Dumb and Dumber To,2014,Peter Farrelly,EE.UU.,,False,3134,5.559
+There’s Something About Mary,1998,Peter Farrelly,EE.UU.,,False,4876,6.602
+Shallow Hal,2001,Peter Farrelly,EE.UU.,,False,2856,6.158
+Stuck on You,2003,Peter Farrelly,EE.UU.,,False,655,5.327
+The Three Stooges,2012,Peter Farrelly,EE.UU.,,False,575,5.8
+"Me,Myself & Irene",2000,Peter Farrelly,EE.UU.,,False,3810,6.596
+Hall Pass,2011,Peter Farrelly,EE.UU.,,False,1940,5.7
+Fever Pitch,2005,Peter Farrelly,EE.UU.,,False,684,6.2
+Pan's Labyrinth,2006,Guillermo del Toro,México,,False,10438,7.758
+Crimson Peak,2015,Guillermo del Toro,México,,False,4890,6.7
+Hellboy,2004,Guillermo del Toro,México,,False,3390,5.6
+Hellboy II: The Golden Army,2008,Guillermo del Toro,México,,False,5118,6.763
+Pacific Rim,2013,Guillermo del Toro,México,,False,12301,6.9
+The Devil's Backbone,2001,Guillermo del Toro,México,,False,1200,7.288
+Kronos,1993,Guillermo del Toro,México,,False,40,5.7
+Mimic,1997,Guillermo del Toro,México,,False,1085,6.1
+Blade II,2002,Guillermo del Toro,México,,False,4660,6.551
+Nightmare Alley,2021,Guillermo del Toro,México,,False,2867,6.993
+The Book of Life,2014,Guillermo del Toro,México,,False,2644,7.5
+If Beale Street Could Talk,2018,Barry Jenkins,EE.UU.,,False,1107,6.948
+Medicine for Melancholy,2008,Barry Jenkins,EE.UU.,,False,33,5.924
+The Station Agent,2003,Tom McCarthy,EE.UU.,,False,652,7.342
+Win Win,2011,Tom McCarthy,EE.UU.,,False,0,0.0
+The Visitor,2007,Tom McCarthy,EE.UU.,,False,440,7.118
+The Cobbler,2014,Tom McCarthy,EE.UU.,,False,1636,5.9
+Timmy Failure: Mistakes Were Made,2020,Tom McCarthy,EE.UU.,,False,175,6.2
+Stillwater,2021,Tom McCarthy,EE.UU,,,1202,6.6
