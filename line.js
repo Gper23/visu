@@ -31,6 +31,26 @@ function createChart(movies) {
           mode: 'lines+markers',
           yaxis: 'y',
           hovertemplate: '%{text}<br>Año: %{x}<br>Calificación: %{y:.1f}<extra></extra>'
+      },
+      {
+          x: years,
+          y: movies.map(m => m.runtime),
+          text: titles,
+          name: 'Duración (minutos)',
+          type: 'scatter',
+          mode: 'lines+markers',
+          yaxis: 'y2',
+          hovertemplate: '%{text}<br>Año: %{x}<br>Duración: %{y} min<extra></extra>'
+      },
+      {
+          x: years,
+          y: movies.map(m => m.budget),
+          text: titles,
+          name: 'Presupuesto',
+          type: 'scatter',
+          mode: 'lines+markers',
+          yaxis: 'y3',
+          hovertemplate: '%{text}<br>Año: %{x}<br>Presupuesto: $%{y:,.0f}<extra></extra>'
       }
   ];
 
@@ -41,6 +61,16 @@ function createChart(movies) {
           title: 'Calificación',
           domain: [0, 0.3],
           tickformat: '.1f'
+      },
+      yaxis2: {
+          title: 'Duración (minutos)',
+          domain: [0.35, 0.65],
+          tickformat: 'd'
+      },
+      yaxis3: {
+          title: 'Presupuesto',
+          domain: [0.7, 1],
+          tickformat: '$.2s'
       },
       height: 900,
       showlegend: true,
@@ -62,5 +92,5 @@ async function analyzeMovieTrends(csvUrl) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  analyzeMovieTrends('final.csv');
+  analyzeMovieTrends('movies.csv');
 });
