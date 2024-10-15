@@ -1,4 +1,4 @@
-Película,Año,Director,País de nacimiento,Película extra,Oscar,vote_quantity,vote_average
+original_title,release_date,Director,País de nacimiento,Película extra,oscar,vote_quantity,vote_average
 Oppenheimer,2023,Christopher Nolan,Reino Unido,Interstellar,True,9068,8.087
 Everything Everywhere All At Once,2022,Daniel Kwan; Daniel Scheinert,EE.UU.,Swiss Army Man,True,6434,7.8
 CODA,2021,Siân Heder,EE.UU.,Tallulah,True,2182,7.932

@@ -1,90 +1,91 @@
+// Función para cargar y procesar los datos de las películas
 async function fetchMovieData(url) {
-    try {
-        const response = await fetch(url);
-        const data = await response.text();
-        
-        const movies = d3.csvParse(data, d3.autoType);
-        // console.log(movies);
-        return movies.filter(movie => !isNaN(movie.vote_average) && !isNaN(movie.runtime) && !isNaN(movie.budget));
-    }
-    catch (error) {
-        console.error("Error al cargar o procesar el CSV:", error);
-        return [];
-    }
+  try {
+      const response = await fetch(url);
+      const data = await response.text();
+
+      const movies = d3.csvParse(data);
+
+      // Procesar y limpiar los datos
+      const processedMovies = movies.map(movie => ({
+          original_title: movie.original_title,
+          release_date: +movie.release_date,
+          Director: movie.Director,
+          pais_nacimiento: movie['País de nacimiento'],
+          pelicula_extra: movie['Película extra'],
+          oscar: movie.oscar === 'True',
+          vote_quantity: +movie.vote_quantity,
+          vote_average: +movie.vote_average
+      })).filter(movie => !isNaN(movie.vote_average) && !isNaN(movie.vote_quantity));
+
+      return processedMovies;
+  } catch (error) {
+      console.error("Error al cargar o procesar el CSV:", error);
+      return [];
   }
-  // Función para crear el gráfico
-  function createChart(movies) {
-    // Ordenar las películas por año de lanzamiento ascendente
-    movies.sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
-    const years = movies.map(m => m.release_date.getFullYear());
-    const titles = movies.map(m => m.original_title);
-    
-    const traces = [
-        {
-            x: years,
-            y: movies.map(m => m.vote_average),
-            text: titles,
-            name: 'Calificación',
-            type: 'scatter',
-            mode: 'lines+markers',
-            yaxis: 'y',
-            hovertemplate: '%{text}<br>Año: %{x}<br>Calificación: %{y:.1f}<extra></extra>'
-        },
-        {
-            x: years,
-            y: movies.map(m => m.runtime),
-            text: titles,
-            name: 'Duración (minutos)',
-            type: 'scatter',
-            mode: 'lines+markers',
-            yaxis: 'y2',
-            hovertemplate: '%{text}<br>Año: %{x}<br>Duración: %{y} min<extra></extra>'
-        },
-        {
-            x: years,
-            y: movies.map(m => m.budget),
-            text: titles,
-            name: 'Presupuesto',
-            type: 'scatter',
-            mode: 'lines+markers',
-            yaxis: 'y3',
-            hovertemplate: '%{text}<br>Año: %{x}<br>Presupuesto: $%{y:,.0f}<extra></extra>'
-        }
-    ];
-    const layout = {
-        title: 'Evolución de las Películas a lo Largo de los Años',
-        xaxis: { title: 'Año', type: 'category' },
-        yaxis: { 
-            title: 'Calificación',
-            domain: [0, 0.3],
-            tickformat: '.1f'
-        },
-        yaxis2: {
-            title: 'Duración (minutos)',
-            domain: [0.35, 0.65],
-            tickformat: 'd'
-        },
-        yaxis3: {
-            title: 'Presupuesto',
-            domain: [0.7, 1],
-            tickformat: '$.2s'
-        },
-        height: 900,
-        showlegend: true,
-        hovermode: 'closest',
-        
-    };
-    Plotly.newPlot('chart', traces, layout);
-  }
-  // Función principal que orquesta todo el proceso
-  async function analyzeMovieTrends(csvUrl) {
-    const movies = await fetchMovieData(csvUrl);
-    if (movies.length > 0) {
-        createChart(movies);
-    } else {
-        console.error("No se pudieron cargar los datos de las películas.");
-    }
-  }
-  document.addEventListener('DOMContentLoaded', () => {
-    analyzeMovieTrends('movies.csv');
+}
+
+// Función para obtener la película con mejor calificación de cada año
+function getTopRatedMoviesByYear(movies) {
+  const topMoviesByYear = {};
+  movies.forEach(movie => {
+      const year = movie.release_date;
+      if (!topMoviesByYear[year] || movie.vote_average > topMoviesByYear[year].vote_average) {
+          topMoviesByYear[year] = movie;
+      }
   });
+  return Object.values(topMoviesByYear);
+}
+
+// Función para crear el gráfico
+function createChart(movies) {
+  // Ordenar las películas por año
+  movies.sort((a, b) => a.release_date - b.release_date);
+
+  const trace = {
+      x: movies.map(m => m.release_date),
+      y: movies.map(m => m.vote_average),
+      text: movies.map(m => 
+          `${m.original_title}<br>Director: ${m.Director}<br>País: ${m.pais_nacimiento}<br>Película extra: ${m.pelicula_extra}<br>Votos: ${m.vote_quantity}`),
+      mode: 'markers',
+      marker: {
+          size: movies.map(m => Math.sqrt(m.vote_quantity) / 5),
+          color: movies.map(m => m.oscar ? 'yellow' : 'gray'),
+          line: {
+              color: 'black',
+              width: 1
+          }
+      },
+      hovertemplate: '%{text}<br>Año: %{x}<br>Calificación: %{y:.3f}<extra></extra>'
+  };
+
+  const layout = {
+      title: 'Películas con Mejor Calificación por Año',
+      xaxis: { title: 'Año' },
+      yaxis: {
+          title: 'Calificación Promedio',
+          range: [0, 10]
+      },
+      paper_bgcolor: '#FEF3C7', // Color similar al fondo de la página
+      plot_bgcolor: '#FEF3C7',  // Color similar al fondo de la página
+      showlegend: false,
+      hovermode: 'closest'
+  };
+
+  Plotly.newPlot('chart', [trace], layout);
+}
+
+// Función principal
+async function analyzeMovieTrends(csvUrl) {
+  const movies = await fetchMovieData(csvUrl);
+  if (movies.length > 0) {
+      const topMovies = getTopRatedMoviesByYear(movies);
+      createChart(topMovies);
+  } else {
+      console.error("No se pudieron cargar los datos de las películas.");
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  analyzeMovieTrends('final.csv');
+});
