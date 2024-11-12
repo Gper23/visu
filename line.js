@@ -58,7 +58,7 @@ function playSound(movie) {
     backgroundSound.play();
 
     // Cargar y reproducir el soundtrack de la película
-    currentSound = new Audio(`soundtracks/${movie.original_title}.mp3`);
+    currentSound = new Audio(`https://gper23.github.io/visu/soundtracks/${movie.original_title}.mp3`);
     currentSound.play();
 
     // Calcular la duración total para ambos audios y aplicar fundido
