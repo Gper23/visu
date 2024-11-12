@@ -53,47 +53,55 @@ function playSound(movie) {
     }
 
     // Cargar y reproducir el sonido de fondo
-    backgroundSound = new Audio(movie.oscar ? 'applause.mp3' : 'murmurs.mp3');
+    backgroundSound = new Audio(movie.oscar ? 'sound1.mp3' : 'sound2.mp3');
+    backgroundSound.volume = 0.6;
     backgroundSound.play();
 
-    // Preparar el soundtrack de la película para reproducir después del fondo
+    // Cargar y reproducir el soundtrack de la película
     currentSound = new Audio(`soundtracks/${movie.original_title}.mp3`);
+    currentSound.play();
 
-    // Reproducir el soundtrack después de que termine el sonido de fondo
-    backgroundSound.onended = () => {
-        currentSound.play();
-        applyFadeOutEffect(movie);
-    };
+    // Calcular la duración total para ambos audios y aplicar fundido
+    const maxDuration = Math.max(backgroundSound.duration, currentSound.duration);
+    applyFadeOutEffect(maxDuration);
 }
 
-// Función para aplicar efecto de fundido al soundtrack
-function applyFadeOutEffect(movie) {
-    // Duración y frecuencia del fundido
-    let fadeOutDuration, fadeOutInterval;
-    fadeOutDuration = movie.oscar ? 6500 : 6000; 
-    fadeOutInterval = movie.oscar ? 100 : 200;
+// Función para aplicar efecto de fundido a ambos sonidos
+function applyFadeOutEffect(duration) {
+    const fadeOutDuration = 7500;  // Duración del fundido (ajustar si es necesario)
+    const fadeOutInterval = 100;   // Intervalo de actualización del volumen
 
     const steps = fadeOutDuration / fadeOutInterval;
-    const volumeDecrement = currentSound.volume / steps;
+    const volumeDecrement = 1 / steps; // Decremento de volumen para ambos sonidos
 
     if (fadeOutIntervalId) {
         clearInterval(fadeOutIntervalId);
     }
 
-    // Iniciar el fundido después de la duración del soundtrack
+    // Iniciar el fundido después de la duración de los audios
     setTimeout(() => {
         fadeOutIntervalId = setInterval(() => {
+            // Reducir el volumen de ambos sonidos
             if (currentSound.volume > 0) {
                 currentSound.volume = Math.max(0, currentSound.volume - volumeDecrement);
-            } else {
+            }
+            if (backgroundSound.volume > 0) {
+                backgroundSound.volume = Math.max(0, backgroundSound.volume - volumeDecrement);
+            }
+
+            // Detener los audios una vez se haya terminado el fundido
+            if (currentSound.volume <= 0 && backgroundSound.volume <= 0) {
                 clearInterval(fadeOutIntervalId);
                 currentSound.pause();
                 currentSound.currentTime = 0;
+                backgroundSound.pause();
+                backgroundSound.currentTime = 0;
                 currentSound = null;
+                backgroundSound = null;
                 fadeOutIntervalId = null;
             }
         }, fadeOutInterval);
-    }, currentSound.duration * 1000 - fadeOutDuration);
+    }, duration * 1000 - fadeOutDuration);  // Ajuste para que el fundido inicie al final de los audios
 }
 
 // Función para crear el gráfico
