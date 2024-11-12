@@ -3,7 +3,6 @@ async function fetchMovieData(url) {
     try {
         const response = await fetch(url);
         const data = await response.text();
-
         const movies = d3.csvParse(data);
 
         // Procesar y limpiar los datos
@@ -37,61 +36,68 @@ function getTopRatedMoviesByYear(movies) {
     return Object.values(topMoviesByYear);
 }
 
-let currentSound = null; // Variable para guardar el audio actual
+let backgroundSound = null; // Variable para el sonido de fondo
+let currentSound = null; // Variable para el soundtrack actual
 let fadeOutIntervalId = null; // ID del intervalo de fundido
 
-// Función para reproducir sonidos según el estado de la película
+// Función para reproducir sonido de fondo y soundtrack de la película
 function playSound(movie) {
-    // Si ya hay un sonido reproduciéndose, lo pausamos
+    // Pausar cualquier reproducción anterior
     if (currentSound) {
         currentSound.pause();
-        currentSound.currentTime = 0; // Reinicia el sonido al inicio
+        currentSound.currentTime = 0;
+    }
+    if (backgroundSound) {
+        backgroundSound.pause();
+        backgroundSound.currentTime = 0;
     }
 
-    // Crear un nuevo objeto de audio para el sonido correspondiente
-    currentSound = new Audio(movie.oscar ? 'sound1.mp3' : 'sound2.mp3');
-    currentSound.play();
+    // Cargar y reproducir el sonido de fondo
+    backgroundSound = new Audio(movie.oscar ? 'applause.mp3' : 'murmurs.mp3');
+    backgroundSound.play();
 
-    // Configurar duración de fundido y intervalo según el sonido
+    // Preparar el soundtrack de la película para reproducir después del fondo
+    currentSound = new Audio(`soundtracks/${movie.original_title}.mp3`);
+
+    // Reproducir el soundtrack después de que termine el sonido de fondo
+    backgroundSound.onended = () => {
+        currentSound.play();
+        applyFadeOutEffect(movie);
+    };
+}
+
+// Función para aplicar efecto de fundido al soundtrack
+function applyFadeOutEffect(movie) {
+    // Duración y frecuencia del fundido
     let fadeOutDuration, fadeOutInterval;
+    fadeOutDuration = movie.oscar ? 6500 : 6000; 
+    fadeOutInterval = movie.oscar ? 100 : 200;
 
-    if (movie.oscar) {
-        fadeOutDuration = 6500; // 6500 ms para sound1
-        fadeOutInterval = 100; // 100 ms intervalo para sound1
-    } else {
-        fadeOutDuration = 6000; // 6000 ms para sound2
-        fadeOutInterval = 200; // 200 ms intervalo para sound2
-    }
-
-    // Calcular cuántos pasos de reducción de volumen habrá
     const steps = fadeOutDuration / fadeOutInterval;
-    const volumeDecrement = currentSound.volume / steps; // Cantidad a reducir en cada paso
+    const volumeDecrement = currentSound.volume / steps;
 
-    // Limitar a un único fundido por vez
     if (fadeOutIntervalId) {
-        clearInterval(fadeOutIntervalId); // Limpiar el intervalo anterior si existe
+        clearInterval(fadeOutIntervalId);
     }
 
-    // Detener el audio después de la duración total
+    // Iniciar el fundido después de la duración del soundtrack
     setTimeout(() => {
-        // Comienza el proceso de fundido
         fadeOutIntervalId = setInterval(() => {
             if (currentSound.volume > 0) {
-                currentSound.volume = Math.max(0, currentSound.volume - volumeDecrement); // Reducir el volumen
+                currentSound.volume = Math.max(0, currentSound.volume - volumeDecrement);
             } else {
-                clearInterval(fadeOutIntervalId); // Detener el intervalo cuando el volumen llega a 0
-                currentSound.pause(); // Detiene el sonido
-                currentSound.currentTime = 0; // Reinicia el sonido al inicio
-                currentSound = null; // Limpiar la variable actual
-                fadeOutIntervalId = null; // Limpiar el ID del intervalo de fundido
+                clearInterval(fadeOutIntervalId);
+                currentSound.pause();
+                currentSound.currentTime = 0;
+                currentSound = null;
+                fadeOutIntervalId = null;
             }
         }, fadeOutInterval);
-    }, currentSound.duration * 1000 - fadeOutDuration); // Retardar el inicio del fade out
+    }, currentSound.duration * 1000 - fadeOutDuration);
 }
 
 // Función para crear el gráfico
 function createChart(movies) {
-    // Ordenar las películas por año
     movies.sort((a, b) => a.release_date - b.release_date);
 
     const trace = {
@@ -103,10 +109,7 @@ function createChart(movies) {
         marker: {
             size: movies.map(m => Math.sqrt(m.vote_quantity) / 5),
             color: movies.map(m => m.oscar ? 'yellow' : 'gray'),
-            line: {
-                color: 'black',
-                width: 1
-            }
+            line: { color: 'black', width: 1 }
         },
         hovertemplate: '%{text}<br>Año: %{x}<br>Calificación: %{y:.3f}<extra></extra>'
     };
@@ -114,24 +117,19 @@ function createChart(movies) {
     const layout = {
         title: 'Películas con Mejor Calificación por Año',
         xaxis: { title: 'Año' },
-        yaxis: {
-            title: 'Calificación Promedio',
-            range: [0, 10]
-        },
-        paper_bgcolor: '#FEF3C7', // Color similar al fondo de la página
-        plot_bgcolor: '#FEF3C7',  // Color similar al fondo de la página
+        yaxis: { title: 'Calificación Promedio', range: [0, 10] },
+        paper_bgcolor: '#FEF3C7',
+        plot_bgcolor: '#FEF3C7',
         showlegend: false,
         hovermode: 'closest'
     };
 
-    // Crear el gráfico
     Plotly.newPlot('chart', [trace], layout).then(() => {
-        // Agregar evento de clic después de renderizar el gráfico
         const chartElement = document.getElementById('chart');
         chartElement.on('plotly_click', function(eventData) {
             const index = eventData.points[0].pointIndex;
             const selectedMovie = movies[index];
-            playSound(selectedMovie); // Reproducir sonido al hacer clic
+            playSound(selectedMovie);
         });
     });
 }
